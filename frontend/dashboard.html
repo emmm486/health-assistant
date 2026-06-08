@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仪表板 - 智能健康助手</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <h2>智能健康助手</h2>
+      <div class="nav-links">
+        <a href="dashboard.html" class="active">仪表板</a>
+        <a href="profile.html">健康档案</a>
+        <a href="plan.html">获取计划</a>
+        <a href="history.html">历史记录</a>
+        <button onclick="logout()" class="btn btn-small">退出</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="dashboard">
+      <h1>欢迎，<span id="username"></span>！👋</h1>
+
+      <div class="dashboard-grid">
+        <div class="card">
+          <h3>📋 健康档案</h3>
+          <div id="profileSummary">
+            <p>加载中...</p>
+          </div>
+          <a href="profile.html" class="btn btn-small">编辑档案</a>
+        </div>
+
+        <div class="card">
+          <h3>⚖️ 最新体重</h3>
+          <div id="weightSummary">
+            <p>加载中...</p>
+          </div>
+          <a href="plan.html" class="btn btn-small">记录体重</a>
+        </div>
+
+        <div class="card">
+          <h3>📊 体重统计</h3>
+          <div id="weightStats">
+            <p>加载中...</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🎯 快速操作</h3>
+          <div class="quick-actions">
+            <a href="profile.html" class="btn btn-secondary">完成档案</a>
+            <a href="plan.html" class="btn btn-secondary">生成计划</a>
+            <a href="history.html" class="btn btn-secondary">查看历史</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', loadDashboard);
+  </script>
+</body>
+</html>

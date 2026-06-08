@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: health-assistant
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/health_assistant?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&characterEncoding=utf8mb4
+    username: root
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 3000
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    root: INFO
+    com.health: DEBUG
+    org.springframework.security: DEBUG
+
+app:
+  jwt:
+    secret: your_jwt_secret_key_change_in_production
+    expiration: 604800000
+  deepseek:
+    api-key: ${DEEPSEEK_API_KEY:your_deepseek_api_key}
+    api-url: https://api.deepseek.com/v1
